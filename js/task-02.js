@@ -6,10 +6,17 @@ const ingredients = [
   "Herbs",
   "Condiments",
 ];
+const ulEl = document.getElementById("ingredients");
+// for (const ingredient of ingredients) {
+//   const ulEl = document.getElementById("ingredients");
+//   const liEl = document.createElement("li");
+//   liEl.textContent = ingredient;
+//   ulEl.appendChild(liEl);
+// }
 
-for (const ingredient of ingredients) {
-  const ulEl = document.getElementById("ingredients");
+const listIngredients = ingredients.map( ingredient => {
   const liEl = document.createElement("li");
-  liEl.textContent = ingredient;
-  ulEl.appendChild(liEl);
-}
+  liEl.textContent = `${ingredient}`
+  return liEl
+});
+ulEl.append(...listIngredients)

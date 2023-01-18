@@ -3,29 +3,28 @@ function getRandomHexColor() {
 }
 
 const input = document.querySelector("[type=number]")
-const createBtn = document.querySelector('button[data-action="create"]')
-const destroyBtn = document.querySelector('button[data-action="destroy"]')
+const createBtn = document.querySelector("[data-create]")
+const destroyBtn = document.querySelector("[data-destroy")
 const boxes = document.getElementById('boxes')
 
-createBtn.addEventListener('click', ()=> {
- const amount = input.value
-  createBoxes(amount)
-})
+createBtn.addEventListener('click', createBoxes)
 
 destroyBtn.addEventListener('click', ()=>{
   boxes.innerHTML = ""
+  input.value = "";
 })
 function createBoxes(amount){
-  let newBoxes = []
+  
+  amount = input.value
   const firstboxSize = 30;
-  for (let i = 0; i < amount; i++) {
+  for (let i = 0; i < amount; i +=1 ) {
     const size = firstboxSize + i * 10;
     const div = document.createElement('div');
-    div.style.width = `width: ${size}px`; 
-    div.style.heigth = `height: ${size}px`;
+    div.style.width = ` ${size}px`; 
+    div.style.height = ` ${size}px`;
     div.style.backgroundColor = getRandomHexColor()
-   newBoxes.push(div)
+    boxes.appendChild(div)
   }
-  boxes.append(...newBoxes);
+ 
 
 }
